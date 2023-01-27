@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template
+CMAKE_SOURCE_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build
+CMAKE_BINARY_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/progress.marks
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/progress.marks
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/clean
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/preinstall
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/preinstall
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 glimac/CMakeFiles/glimac.dir/rule:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/CMakeFiles/glimac.dir/rule
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f CMakeFiles/Makefile2 glimac/CMakeFiles/glimac.dir/rule
 .PHONY : glimac/CMakeFiles/glimac.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ glimac: glimac/CMakeFiles/glimac.dir/rule
 
 # fast build rule for target.
 glimac/fast:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/build
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/build
 .PHONY : glimac/fast
 
 src/Cone.o: src/Cone.cpp.o
@@ -131,7 +131,7 @@ src/Cone.o: src/Cone.cpp.o
 
 # target to build an object file
 src/Cone.cpp.o:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cone.cpp.o
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cone.cpp.o
 .PHONY : src/Cone.cpp.o
 
 src/Cone.i: src/Cone.cpp.i
@@ -140,7 +140,7 @@ src/Cone.i: src/Cone.cpp.i
 
 # target to preprocess a source file
 src/Cone.cpp.i:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cone.cpp.i
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cone.cpp.i
 .PHONY : src/Cone.cpp.i
 
 src/Cone.s: src/Cone.cpp.s
@@ -149,7 +149,7 @@ src/Cone.s: src/Cone.cpp.s
 
 # target to generate assembly for a file
 src/Cone.cpp.s:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cone.cpp.s
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cone.cpp.s
 .PHONY : src/Cone.cpp.s
 
 src/Geometry.o: src/Geometry.cpp.o
@@ -158,7 +158,7 @@ src/Geometry.o: src/Geometry.cpp.o
 
 # target to build an object file
 src/Geometry.cpp.o:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Geometry.cpp.o
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Geometry.cpp.o
 .PHONY : src/Geometry.cpp.o
 
 src/Geometry.i: src/Geometry.cpp.i
@@ -167,7 +167,7 @@ src/Geometry.i: src/Geometry.cpp.i
 
 # target to preprocess a source file
 src/Geometry.cpp.i:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Geometry.cpp.i
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Geometry.cpp.i
 .PHONY : src/Geometry.cpp.i
 
 src/Geometry.s: src/Geometry.cpp.s
@@ -176,7 +176,7 @@ src/Geometry.s: src/Geometry.cpp.s
 
 # target to generate assembly for a file
 src/Geometry.cpp.s:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Geometry.cpp.s
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Geometry.cpp.s
 .PHONY : src/Geometry.cpp.s
 
 src/Image.o: src/Image.cpp.o
@@ -185,7 +185,7 @@ src/Image.o: src/Image.cpp.o
 
 # target to build an object file
 src/Image.cpp.o:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Image.cpp.o
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Image.cpp.o
 .PHONY : src/Image.cpp.o
 
 src/Image.i: src/Image.cpp.i
@@ -194,7 +194,7 @@ src/Image.i: src/Image.cpp.i
 
 # target to preprocess a source file
 src/Image.cpp.i:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Image.cpp.i
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Image.cpp.i
 .PHONY : src/Image.cpp.i
 
 src/Image.s: src/Image.cpp.s
@@ -203,7 +203,7 @@ src/Image.s: src/Image.cpp.s
 
 # target to generate assembly for a file
 src/Image.cpp.s:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Image.cpp.s
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Image.cpp.s
 .PHONY : src/Image.cpp.s
 
 src/Program.o: src/Program.cpp.o
@@ -212,7 +212,7 @@ src/Program.o: src/Program.cpp.o
 
 # target to build an object file
 src/Program.cpp.o:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Program.cpp.o
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Program.cpp.o
 .PHONY : src/Program.cpp.o
 
 src/Program.i: src/Program.cpp.i
@@ -221,7 +221,7 @@ src/Program.i: src/Program.cpp.i
 
 # target to preprocess a source file
 src/Program.cpp.i:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Program.cpp.i
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Program.cpp.i
 .PHONY : src/Program.cpp.i
 
 src/Program.s: src/Program.cpp.s
@@ -230,7 +230,7 @@ src/Program.s: src/Program.cpp.s
 
 # target to generate assembly for a file
 src/Program.cpp.s:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Program.cpp.s
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Program.cpp.s
 .PHONY : src/Program.cpp.s
 
 src/SDLWindowManager.o: src/SDLWindowManager.cpp.o
@@ -239,7 +239,7 @@ src/SDLWindowManager.o: src/SDLWindowManager.cpp.o
 
 # target to build an object file
 src/SDLWindowManager.cpp.o:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.o
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.o
 .PHONY : src/SDLWindowManager.cpp.o
 
 src/SDLWindowManager.i: src/SDLWindowManager.cpp.i
@@ -248,7 +248,7 @@ src/SDLWindowManager.i: src/SDLWindowManager.cpp.i
 
 # target to preprocess a source file
 src/SDLWindowManager.cpp.i:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.i
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.i
 .PHONY : src/SDLWindowManager.cpp.i
 
 src/SDLWindowManager.s: src/SDLWindowManager.cpp.s
@@ -257,7 +257,7 @@ src/SDLWindowManager.s: src/SDLWindowManager.cpp.s
 
 # target to generate assembly for a file
 src/SDLWindowManager.cpp.s:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.s
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.s
 .PHONY : src/SDLWindowManager.cpp.s
 
 src/Shader.o: src/Shader.cpp.o
@@ -266,7 +266,7 @@ src/Shader.o: src/Shader.cpp.o
 
 # target to build an object file
 src/Shader.cpp.o:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Shader.cpp.o
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Shader.cpp.o
 .PHONY : src/Shader.cpp.o
 
 src/Shader.i: src/Shader.cpp.i
@@ -275,7 +275,7 @@ src/Shader.i: src/Shader.cpp.i
 
 # target to preprocess a source file
 src/Shader.cpp.i:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Shader.cpp.i
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Shader.cpp.i
 .PHONY : src/Shader.cpp.i
 
 src/Shader.s: src/Shader.cpp.s
@@ -284,7 +284,7 @@ src/Shader.s: src/Shader.cpp.s
 
 # target to generate assembly for a file
 src/Shader.cpp.s:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Shader.cpp.s
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Shader.cpp.s
 .PHONY : src/Shader.cpp.s
 
 src/Sphere.o: src/Sphere.cpp.o
@@ -293,7 +293,7 @@ src/Sphere.o: src/Sphere.cpp.o
 
 # target to build an object file
 src/Sphere.cpp.o:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.o
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.o
 .PHONY : src/Sphere.cpp.o
 
 src/Sphere.i: src/Sphere.cpp.i
@@ -302,7 +302,7 @@ src/Sphere.i: src/Sphere.cpp.i
 
 # target to preprocess a source file
 src/Sphere.cpp.i:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.i
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.i
 .PHONY : src/Sphere.cpp.i
 
 src/Sphere.s: src/Sphere.cpp.s
@@ -311,8 +311,35 @@ src/Sphere.s: src/Sphere.cpp.s
 
 # target to generate assembly for a file
 src/Sphere.cpp.s:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.s
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.s
 .PHONY : src/Sphere.cpp.s
+
+src/objloader.o: src/objloader.cpp.o
+
+.PHONY : src/objloader.o
+
+# target to build an object file
+src/objloader.cpp.o:
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/objloader.cpp.o
+.PHONY : src/objloader.cpp.o
+
+src/objloader.i: src/objloader.cpp.i
+
+.PHONY : src/objloader.i
+
+# target to preprocess a source file
+src/objloader.cpp.i:
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/objloader.cpp.i
+.PHONY : src/objloader.cpp.i
+
+src/objloader.s: src/objloader.cpp.s
+
+.PHONY : src/objloader.s
+
+# target to generate assembly for a file
+src/objloader.cpp.s:
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/objloader.cpp.s
+.PHONY : src/objloader.cpp.s
 
 src/tiny_obj_loader.o: src/tiny_obj_loader.cpp.o
 
@@ -320,7 +347,7 @@ src/tiny_obj_loader.o: src/tiny_obj_loader.cpp.o
 
 # target to build an object file
 src/tiny_obj_loader.cpp.o:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.o
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.o
 .PHONY : src/tiny_obj_loader.cpp.o
 
 src/tiny_obj_loader.i: src/tiny_obj_loader.cpp.i
@@ -329,7 +356,7 @@ src/tiny_obj_loader.i: src/tiny_obj_loader.cpp.i
 
 # target to preprocess a source file
 src/tiny_obj_loader.cpp.i:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.i
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.i
 .PHONY : src/tiny_obj_loader.cpp.i
 
 src/tiny_obj_loader.s: src/tiny_obj_loader.cpp.s
@@ -338,7 +365,7 @@ src/tiny_obj_loader.s: src/tiny_obj_loader.cpp.s
 
 # target to generate assembly for a file
 src/tiny_obj_loader.cpp.s:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.s
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.s
 .PHONY : src/tiny_obj_loader.cpp.s
 
 # Help Target
@@ -371,6 +398,9 @@ help:
 	@echo "... src/Sphere.o"
 	@echo "... src/Sphere.i"
 	@echo "... src/Sphere.s"
+	@echo "... src/objloader.o"
+	@echo "... src/objloader.i"
+	@echo "... src/objloader.s"
 	@echo "... src/tiny_obj_loader.o"
 	@echo "... src/tiny_obj_loader.i"
 	@echo "... src/tiny_obj_loader.s"
@@ -385,6 +415,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

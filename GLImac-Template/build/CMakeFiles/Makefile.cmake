@@ -8,8 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
-  "../TP4_camera/CMakeLists.txt"
-  "../TP5_light_shader/CMakeLists.txt"
+  "../ProjectBase/CMakeLists.txt"
   "CMakeFiles/3.16.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeSystem.cmake"
@@ -53,17 +52,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "glimac/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "TP4_camera/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "TP5_light_shader/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "ProjectBase/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "glimac/CMakeFiles/glimac.dir/DependInfo.cmake"
-  "TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/DependInfo.cmake"
-  "TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/DependInfo.cmake"
-  "TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/DependInfo.cmake"
-  "TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/DependInfo.cmake"
-  "TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/DependInfo.cmake"
-  "TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/DependInfo.cmake"
+  "ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/DependInfo.cmake"
+  "ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/DependInfo.cmake"
   )

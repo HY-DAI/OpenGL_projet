@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template
+# Install script for directory: /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,9 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/cmake_install.cmake")
-  include("/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/TP4_camera/cmake_install.cmake")
-  include("/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/TP5_light_shader/cmake_install.cmake")
+  include("/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/cmake_install.cmake")
+  include("/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/ProjectBase/cmake_install.cmake")
 
 endif()
 
@@ -53,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

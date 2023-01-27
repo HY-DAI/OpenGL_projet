@@ -44,78 +44,51 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template
+CMAKE_SOURCE_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build
+CMAKE_BINARY_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
 all: glimac/all
-all: TP4_camera/all
-all: TP5_light_shader/all
+all: ProjectBase/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: glimac/preinstall
-preinstall: TP4_camera/preinstall
-preinstall: TP5_light_shader/preinstall
+preinstall: ProjectBase/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: glimac/clean
-clean: TP4_camera/clean
-clean: TP5_light_shader/clean
+clean: ProjectBase/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory TP4_camera
+# Directory level rules for directory ProjectBase
 
 # Recursive "all" directory target.
-TP4_camera/all: TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/all
-TP4_camera/all: TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/all
-TP4_camera/all: TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/all
-TP4_camera/all: TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/all
+ProjectBase/all: ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/all
+ProjectBase/all: ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/all
 
-.PHONY : TP4_camera/all
+.PHONY : ProjectBase/all
 
 # Recursive "preinstall" directory target.
-TP4_camera/preinstall:
+ProjectBase/preinstall:
 
-.PHONY : TP4_camera/preinstall
-
-# Recursive "clean" directory target.
-TP4_camera/clean: TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/clean
-TP4_camera/clean: TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/clean
-TP4_camera/clean: TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/clean
-TP4_camera/clean: TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/clean
-
-.PHONY : TP4_camera/clean
-
-#=============================================================================
-# Directory level rules for directory TP5_light_shader
-
-# Recursive "all" directory target.
-TP5_light_shader/all: TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/all
-TP5_light_shader/all: TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/all
-
-.PHONY : TP5_light_shader/all
-
-# Recursive "preinstall" directory target.
-TP5_light_shader/preinstall:
-
-.PHONY : TP5_light_shader/preinstall
+.PHONY : ProjectBase/preinstall
 
 # Recursive "clean" directory target.
-TP5_light_shader/clean: TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/clean
-TP5_light_shader/clean: TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/clean
+ProjectBase/clean: ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/clean
+ProjectBase/clean: ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/clean
 
-.PHONY : TP5_light_shader/clean
+.PHONY : ProjectBase/clean
 
 #=============================================================================
 # Directory level rules for directory glimac
@@ -142,14 +115,14 @@ glimac/clean: glimac/CMakeFiles/glimac.dir/clean
 glimac/CMakeFiles/glimac.dir/all:
 	$(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/depend
 	$(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles --progress-num=13,14,15,16,17,18,19,20,21 "Built target glimac"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14 "Built target glimac"
 .PHONY : glimac/CMakeFiles/glimac.dir/all
 
 # Build rule for subdir invocation for target.
 glimac/CMakeFiles/glimac.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 glimac/CMakeFiles/glimac.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles 0
 .PHONY : glimac/CMakeFiles/glimac.dir/rule
 
 # Convenience name for target.
@@ -163,166 +136,58 @@ glimac/CMakeFiles/glimac.dir/clean:
 .PHONY : glimac/CMakeFiles/glimac.dir/clean
 
 #=============================================================================
-# Target rules for target TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir
+# Target rules for target ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir
 
 # All Build rule for target.
-TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/all: glimac/CMakeFiles/glimac.dir/all
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/depend
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles --progress-num=7,8 "Built target TP4_camera_exo_TrackBallCamera"
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/all
+ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/all: glimac/CMakeFiles/glimac.dir/all
+	$(MAKE) -f ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/build.make ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/depend
+	$(MAKE) -f ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/build.make ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles --progress-num=3,4 "Built target ProjectBase_testOuvertureFile"
+.PHONY : ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/all
 
 # Build rule for subdir invocation for target.
-TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/rule
+ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles 0
+.PHONY : ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/rule
 
 # Convenience name for target.
-TP4_camera_exo_TrackBallCamera: TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/rule
+ProjectBase_testOuvertureFile: ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/rule
 
-.PHONY : TP4_camera_exo_TrackBallCamera
+.PHONY : ProjectBase_testOuvertureFile
 
 # clean rule for target.
-TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/clean:
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/clean
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/clean
+ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/clean:
+	$(MAKE) -f ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/build.make ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/clean
+.PHONY : ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/clean
 
 #=============================================================================
-# Target rules for target TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir
+# Target rules for target ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir
 
 # All Build rule for target.
-TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/all: glimac/CMakeFiles/glimac.dir/all
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/depend
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles --progress-num=5,6 "Built target TP4_camera_exo6_Freefly_Terre"
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/all
+ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/all: glimac/CMakeFiles/glimac.dir/all
+	$(MAKE) -f ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/build.make ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/depend
+	$(MAKE) -f ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/build.make ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles --progress-num=1,2 "Built target ProjectBase_MeshesWithTextures"
+.PHONY : ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/all
 
 # Build rule for subdir invocation for target.
-TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/rule
+ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles 0
+.PHONY : ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/rule
 
 # Convenience name for target.
-TP4_camera_exo6_Freefly_Terre: TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/rule
+ProjectBase_MeshesWithTextures: ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/rule
 
-.PHONY : TP4_camera_exo6_Freefly_Terre
-
-# clean rule for target.
-TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/clean:
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/clean
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/clean
-
-#=============================================================================
-# Target rules for target TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir
-
-# All Build rule for target.
-TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/all: glimac/CMakeFiles/glimac.dir/all
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/depend
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles --progress-num=3,4 "Built target TP4_camera_exo5_TrackBall_Terre"
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/all
-
-# Build rule for subdir invocation for target.
-TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/rule
-
-# Convenience name for target.
-TP4_camera_exo5_TrackBall_Terre: TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/rule
-
-.PHONY : TP4_camera_exo5_TrackBall_Terre
+.PHONY : ProjectBase_MeshesWithTextures
 
 # clean rule for target.
-TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/clean:
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/clean
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/clean
-
-#=============================================================================
-# Target rules for target TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir
-
-# All Build rule for target.
-TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/all: glimac/CMakeFiles/glimac.dir/all
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/depend
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles --progress-num=1,2 "Built target TP4_camera_exo4_TrackBallCamera"
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/all
-
-# Build rule for subdir invocation for target.
-TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/rule
-
-# Convenience name for target.
-TP4_camera_exo4_TrackBallCamera: TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/rule
-
-.PHONY : TP4_camera_exo4_TrackBallCamera
-
-# clean rule for target.
-TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/clean:
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/clean
-.PHONY : TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/clean
-
-#=============================================================================
-# Target rules for target TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir
-
-# All Build rule for target.
-TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/all: glimac/CMakeFiles/glimac.dir/all
-	$(MAKE) -f TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/build.make TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/depend
-	$(MAKE) -f TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/build.make TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles --progress-num=11,12 "Built target TP5_light_shader_planetes_camera_light"
-.PHONY : TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/all
-
-# Build rule for subdir invocation for target.
-TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
-.PHONY : TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/rule
-
-# Convenience name for target.
-TP5_light_shader_planetes_camera_light: TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/rule
-
-.PHONY : TP5_light_shader_planetes_camera_light
-
-# clean rule for target.
-TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/clean:
-	$(MAKE) -f TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/build.make TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/clean
-.PHONY : TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/clean
-
-#=============================================================================
-# Target rules for target TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir
-
-# All Build rule for target.
-TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/all: glimac/CMakeFiles/glimac.dir/all
-	$(MAKE) -f TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/build.make TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/depend
-	$(MAKE) -f TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/build.make TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles --progress-num=9,10 "Built target TP5_light_shader_fusion_light_camera"
-.PHONY : TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/all
-
-# Build rule for subdir invocation for target.
-TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
-.PHONY : TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/rule
-
-# Convenience name for target.
-TP5_light_shader_fusion_light_camera: TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/rule
-
-.PHONY : TP5_light_shader_fusion_light_camera
-
-# clean rule for target.
-TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/clean:
-	$(MAKE) -f TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/build.make TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/clean
-.PHONY : TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/clean
+ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/clean:
+	$(MAKE) -f ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/build.make ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/clean
+.PHONY : ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

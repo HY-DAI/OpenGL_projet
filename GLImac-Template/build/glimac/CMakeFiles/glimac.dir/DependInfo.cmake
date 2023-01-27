@@ -4,14 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/glimac/src/Cone.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Cone.cpp.o"
-  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/glimac/src/Geometry.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Geometry.cpp.o"
-  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/glimac/src/Image.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Image.cpp.o"
-  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/glimac/src/Program.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Program.cpp.o"
-  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/glimac/src/SDLWindowManager.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.o"
-  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/glimac/src/Shader.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Shader.cpp.o"
-  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/glimac/src/Sphere.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.o"
-  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/glimac/src/tiny_obj_loader.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/Cone.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Cone.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/Geometry.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Geometry.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/Image.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Image.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/Program.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Program.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/SDLWindowManager.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/Shader.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Shader.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/Sphere.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/objloader.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/objloader.cpp.o"
+  "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/glimac/src/tiny_obj_loader.cpp" "/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template
+CMAKE_SOURCE_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build
+CMAKE_BINARY_DIR = /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_tps/GLImac-Template/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -124,82 +124,30 @@ glimac/fast:
 .PHONY : glimac/fast
 
 #=============================================================================
-# Target rules for targets named TP4_camera_exo_TrackBallCamera
+# Target rules for targets named ProjectBase_testOuvertureFile
 
 # Build rule for target.
-TP4_camera_exo_TrackBallCamera: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_camera_exo_TrackBallCamera
-.PHONY : TP4_camera_exo_TrackBallCamera
+ProjectBase_testOuvertureFile: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ProjectBase_testOuvertureFile
+.PHONY : ProjectBase_testOuvertureFile
 
 # fast build rule for target.
-TP4_camera_exo_TrackBallCamera/fast:
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo_TrackBallCamera.dir/build
-.PHONY : TP4_camera_exo_TrackBallCamera/fast
+ProjectBase_testOuvertureFile/fast:
+	$(MAKE) -f ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/build.make ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir/build
+.PHONY : ProjectBase_testOuvertureFile/fast
 
 #=============================================================================
-# Target rules for targets named TP4_camera_exo6_Freefly_Terre
+# Target rules for targets named ProjectBase_MeshesWithTextures
 
 # Build rule for target.
-TP4_camera_exo6_Freefly_Terre: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_camera_exo6_Freefly_Terre
-.PHONY : TP4_camera_exo6_Freefly_Terre
+ProjectBase_MeshesWithTextures: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ProjectBase_MeshesWithTextures
+.PHONY : ProjectBase_MeshesWithTextures
 
 # fast build rule for target.
-TP4_camera_exo6_Freefly_Terre/fast:
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo6_Freefly_Terre.dir/build
-.PHONY : TP4_camera_exo6_Freefly_Terre/fast
-
-#=============================================================================
-# Target rules for targets named TP4_camera_exo5_TrackBall_Terre
-
-# Build rule for target.
-TP4_camera_exo5_TrackBall_Terre: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_camera_exo5_TrackBall_Terre
-.PHONY : TP4_camera_exo5_TrackBall_Terre
-
-# fast build rule for target.
-TP4_camera_exo5_TrackBall_Terre/fast:
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo5_TrackBall_Terre.dir/build
-.PHONY : TP4_camera_exo5_TrackBall_Terre/fast
-
-#=============================================================================
-# Target rules for targets named TP4_camera_exo4_TrackBallCamera
-
-# Build rule for target.
-TP4_camera_exo4_TrackBallCamera: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP4_camera_exo4_TrackBallCamera
-.PHONY : TP4_camera_exo4_TrackBallCamera
-
-# fast build rule for target.
-TP4_camera_exo4_TrackBallCamera/fast:
-	$(MAKE) -f TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/build.make TP4_camera/CMakeFiles/TP4_camera_exo4_TrackBallCamera.dir/build
-.PHONY : TP4_camera_exo4_TrackBallCamera/fast
-
-#=============================================================================
-# Target rules for targets named TP5_light_shader_planetes_camera_light
-
-# Build rule for target.
-TP5_light_shader_planetes_camera_light: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP5_light_shader_planetes_camera_light
-.PHONY : TP5_light_shader_planetes_camera_light
-
-# fast build rule for target.
-TP5_light_shader_planetes_camera_light/fast:
-	$(MAKE) -f TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/build.make TP5_light_shader/CMakeFiles/TP5_light_shader_planetes_camera_light.dir/build
-.PHONY : TP5_light_shader_planetes_camera_light/fast
-
-#=============================================================================
-# Target rules for targets named TP5_light_shader_fusion_light_camera
-
-# Build rule for target.
-TP5_light_shader_fusion_light_camera: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP5_light_shader_fusion_light_camera
-.PHONY : TP5_light_shader_fusion_light_camera
-
-# fast build rule for target.
-TP5_light_shader_fusion_light_camera/fast:
-	$(MAKE) -f TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/build.make TP5_light_shader/CMakeFiles/TP5_light_shader_fusion_light_camera.dir/build
-.PHONY : TP5_light_shader_fusion_light_camera/fast
+ProjectBase_MeshesWithTextures/fast:
+	$(MAKE) -f ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/build.make ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir/build
+.PHONY : ProjectBase_MeshesWithTextures/fast
 
 # Help Target
 help:
@@ -210,12 +158,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... glimac"
-	@echo "... TP4_camera_exo_TrackBallCamera"
-	@echo "... TP4_camera_exo6_Freefly_Terre"
-	@echo "... TP4_camera_exo5_TrackBall_Terre"
-	@echo "... TP4_camera_exo4_TrackBallCamera"
-	@echo "... TP5_light_shader_planetes_camera_light"
-	@echo "... TP5_light_shader_fusion_light_camera"
+	@echo "... ProjectBase_testOuvertureFile"
+	@echo "... ProjectBase_MeshesWithTextures"
 .PHONY : help
 
 

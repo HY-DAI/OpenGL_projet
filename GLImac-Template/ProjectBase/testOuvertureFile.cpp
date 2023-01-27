@@ -15,6 +15,38 @@
 
 using namespace glimac;
 
+// ------------------------------------------
+// Fonctions pour automatiser
+// ------------------------------------------
+
+std::unique_ptr<Image> loadAndBindTextures(std::string img_src, GLuint *textures, int position)
+{
+
+    std::unique_ptr<Image> img_ptr = loadImage(img_src);
+    if (!img_ptr)
+        std::cout << "imgTriforce null " << std::endl;
+
+    // binder la texture sur la cible GL_TEXTURE_2D
+    glBindTexture(GL_TEXTURE_2D, textures[position]);
+    // envoyer img au GPU pour stockée dans la texture object
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA,
+                 img_ptr->getWidth(), img_ptr->getHeight(),
+                 0, GL_RGBA, GL_FLOAT,
+                 (const void *)img_ptr->getPixels());
+    // spécifier les filtres à appliquer
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    // débinder la texture
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    return img_ptr;
+}
+
+// ------------------------------------------
+// MAIN
+// ------------------------------------------
+
 int main(int argc, char** argv) {
 
     // Initialize SDL and open a window
@@ -48,11 +80,31 @@ int main(int argc, char** argv) {
 
 
     //---------------------------------
+    // Textures
+    //---------------------------------
+    GLuint texSize = 1;
+
+    GLuint earthTexture;
+    // GLuint cloudTexture;
+    // GLuint moonTexture;
+    // créer un nouveau texture object
+    glGenTextures(texSize, &earthTexture);
+    // glGenTextures(texSize, &cloudTexture);
+    // glGenTextures(texSize, &moonTexture);
+
+    // Load notre texture => doit être fait avant la boucle de rendu
+    std::unique_ptr<Image> imgTerre = loadAndBindTextures("../assets/textures/EarthMap.jpg", &earthTexture, 0);
+    // std::unique_ptr<Image> imgNuage = loadAndBindTextures("../assets/textures/CloudMap.jpg", &cloudTexture, 0);
+
+    // // Load notre texture lune
+    // std::unique_ptr<Image> imgLune = loadAndBindTextures("../assets/textures/MoonMap.jpg", &moonTexture, 0);
+
+    //---------------------------------
     // Load les shaders
     //---------------------------------
 
     FilePath applicationPath(argv[0]);
-    Program program = loadProgram(applicationPath.dirPath() + "shaders/3D.vs.glsl", applicationPath.dirPath() + "shaders/normals.fs.glsl");
+    Program program = loadProgram(applicationPath.dirPath() + "shaders/3D.vs.glsl", applicationPath.dirPath() + "shaders/directionallight_tex.fs.glsl");
     program.use();
 
     //---------------------------------
@@ -125,6 +177,8 @@ int main(int argc, char** argv) {
     FreeflyCamera Freefly = FreeflyCamera();
     glm::ivec2 lastMousePos;
     
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D,earthTexture);
 
     // Application loop:
     bool done = false;
@@ -176,8 +230,8 @@ int main(int argc, char** argv) {
         glm::mat4 MatView = Freefly.getViewMatrix();
         
         glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), (GLfloat)largeur/(GLfloat)hauteur, 0.1f, 100.f); 
-    glm::mat4 MVMatrix = MatView*glm::mat4(1.f);
-    glm::mat4 NormalMatrix = glm::transpose(glm::inverse(MVMatrix));
+        glm::mat4 MVMatrix = MatView*glm::mat4(1.f);
+        glm::mat4 NormalMatrix = glm::transpose(glm::inverse(MVMatrix));
         
         
         glUniformMatrix4fv(locationMVMatrix,1,GL_FALSE, glm::value_ptr(MVMatrix));
@@ -186,7 +240,8 @@ int main(int argc, char** argv) {
 
         glDrawArrays(GL_TRIANGLES, 0, vertices.size()); 
 
-        // glBindTexture(GL_TEXTURE_2D,0);
+
+        // glBindTexture(GL_TEXTURE_2D, 0);
         glBindVertexArray(0);
 
 
