@@ -1,9 +1,0 @@
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/edit_cache.dir
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/glimac/CMakeFiles/glimac.dir
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/ProjectBase/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/ProjectBase/CMakeFiles/edit_cache.dir
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/ProjectBase/CMakeFiles/ProjectBase_testOuvertureFile.dir
-/mnt/c/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/build/ProjectBase/CMakeFiles/ProjectBase_MeshesWithTextures.dir
