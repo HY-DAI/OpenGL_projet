@@ -1,22 +1,22 @@
-# Blender 3.4.1 MTL File: 'Museum.blend'
+# Blender 3.4.1 MTL File: 'paints.blend'
 # www.blender.org
 
-newmtl cadre_clair
+newmtl cadre_fonce
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.046917 0.031620 0.004946
+Kd 0.017467 0.012374 0.002772
 Ks 0.158182 0.158182 0.158182
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
 
-newmtl jundi_red
+newmtl courbet_depression
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
-Ks 0.030909 0.030909 0.030909
+Ks 0.132727 0.132727 0.132727
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/jundi_red.jpg
+map_Kd C:/Users/huiyi/OneDrive/Documents/E5/OpenGL/opengl_projet/GLImac-Template/assets/textures/courbet_autoportrait.jpg
