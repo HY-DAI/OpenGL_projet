@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
     std::cout << "GLEW Version : " << glewGetString(GLEW_VERSION) << std::endl;
 
     //---------------------------------
-    // Spheres
+    // Geometries
     //---------------------------------
     
     // Sphere sphere = Sphere(1, 32, 16);    
@@ -56,6 +56,8 @@ int main(int argc, char** argv) {
     Geometry chariot = Geometry();
     const FilePath filepath2 = FilePath("../assets/models/museum/test.obj");
     const FilePath mtlBasePath2 = FilePath("../assets/models/test.mtl");
+    // const FilePath filepath2 = FilePath("../assets/models/cube.obj");
+    // const FilePath mtlBasePath2 = FilePath("../assets/cube.mtl");
     bool loadObj2 = chariot.loadOBJ(filepath2, mtlBasePath2, loadTextures);
     // variables utiles plus tard
     GLuint nvertices2 = chariot.getVertexCount(); //Nombre de sommet
@@ -107,7 +109,7 @@ int main(int argc, char** argv) {
 	glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
 	glEnableVertexAttribArray(VERTEX_ATTR_TEXTURE);
     // Associer les vertices avec pointer 
-    glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE,sizeof(glimac::Geometry::Vertex), offsetof(glimac::Geometry::Vertex, m_Position));
+    glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE,sizeof(glimac::Geometry::Vertex), (const GLvoid*)offsetof(glimac::Geometry::Vertex, m_Position));
     glVertexAttribPointer(VERTEX_ATTR_NORMAL, 3, GL_FLOAT, GL_FALSE,sizeof(glimac::Geometry::Vertex),  (const GLvoid*)(offsetof(glimac::Geometry::Vertex, m_Normal)));
     glVertexAttribPointer(VERTEX_ATTR_TEXTURE, 2, GL_FLOAT, GL_FALSE,sizeof(glimac::Geometry::Vertex),  (const GLvoid*)(offsetof(glimac::Geometry::Vertex, m_TexCoords)));
 	// debind vbo
@@ -122,7 +124,7 @@ int main(int argc, char** argv) {
 	glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
 	glEnableVertexAttribArray(VERTEX_ATTR_TEXTURE);
     // Associer les vertices avec pointer 
-    glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE,sizeof(glimac::Geometry::Vertex), offsetof(glimac::Geometry::Vertex, m_Position));
+    glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE,sizeof(glimac::Geometry::Vertex), (const GLvoid*)offsetof(glimac::Geometry::Vertex, m_Position));
     glVertexAttribPointer(VERTEX_ATTR_NORMAL, 3, GL_FLOAT, GL_FALSE,sizeof(glimac::Geometry::Vertex),  (const GLvoid*)(offsetof(glimac::Geometry::Vertex, m_Normal)));
     glVertexAttribPointer(VERTEX_ATTR_TEXTURE, 2, GL_FLOAT, GL_FALSE,sizeof(glimac::Geometry::Vertex),  (const GLvoid*)(offsetof(glimac::Geometry::Vertex, m_TexCoords)));
 	// debind vbo
@@ -225,7 +227,7 @@ int main(int argc, char** argv) {
         glBindVertexArray(vaos[1]);    
         
         // Tu modifies ce que tu veux de 2e obj
-        glm::mat4 MVMatrix2 = MatView*glm::rotate(MVMatrix, windowManager.getTime(), glm::vec3(0, 1, 0));
+        glm::mat4 MVMatrix2 = glm::rotate(MVMatrix, windowManager.getTime(), glm::vec3(0, 1, 0));
         glm::mat4 NormalMatrix2 = glm::transpose(glm::inverse(MVMatrix2));
         glUniformMatrix4fv(locationMVMatrix,1,GL_FALSE, glm::value_ptr(MVMatrix2));
         glUniformMatrix4fv(locationNormalMatrix,1,GL_FALSE, glm::value_ptr(NormalMatrix2));

@@ -45,7 +45,7 @@ std::unique_ptr<Image> loadAndBindTextures(std::string img_src, GLuint *textures
     return img_ptr;
 }
 
-ShapeVertex* listOfVertex(std::vector<glm::vec3> vertices, std::vector<glm::vec2> uvs, std::vector<glm::vec3> normals) {
+std::vector<ShapeVertex> listOfVertex(std::vector<glm::vec3> vertices, std::vector<glm::vec2> uvs, std::vector<glm::vec3> normals) {
     std::vector<ShapeVertex> shapeVertices;
     
     for (auto i = 0; i < vertices.size(); i ++) {
@@ -57,7 +57,7 @@ ShapeVertex* listOfVertex(std::vector<glm::vec3> vertices, std::vector<glm::vec2
         
         shapeVertices.push_back(crtVertex);
     }
-    return shapeVertices.data(); //&shapeVertices[0];
+    return shapeVertices; //&shapeVertices[0];
 }
 
 
@@ -92,8 +92,8 @@ int main(int argc, char** argv) {
 	std::vector<glm::vec3> normals; // Won't be used at the moment.
 
 	bool res = loadOBJ("../assets/models/museum/rails.obj", positions, uvs, normals);
-    const ShapeVertex* vertices = listOfVertex(positions,uvs,normals);  
-    GLuint nvertices = positions.size();
+    const std::vector<ShapeVertex> vertices = listOfVertex(positions,uvs,normals);  
+    GLuint nvertices = vertices.size();
 
         std::cout << "obj1 loaded, nvertices = " <<nvertices << std::endl;
 
@@ -106,8 +106,8 @@ int main(int argc, char** argv) {
 	std::vector<glm::vec3> normals2; // Won't be used at the moment.
 
 	bool res2 = loadOBJ("../assets/models/museum/rabbitPlayer.obj", positions2, uvs2, normals2);
-    const ShapeVertex* vertices2 = listOfVertex(positions2,uvs2,normals2);  
-    GLuint nvertices2 = positions2.size();
+    const std::vector<ShapeVertex> vertices2 = listOfVertex(positions2,uvs2,normals2);  
+    GLuint nvertices2 = vertices2.size();
 
         std::cout << "obj2 loaded, nvertices2 = " <<nvertices2<< std::endl;
 
@@ -152,10 +152,11 @@ int main(int argc, char** argv) {
 	// glBindBuffer(GL_ARRAY_BUFFER, *vbos);
     
 	glBindBuffer(GL_ARRAY_BUFFER, vbos[0]);
-	glBufferData(GL_ARRAY_BUFFER, nvertices * sizeof(ShapeVertex), vertices, GL_STATIC_DRAW);
-    
+	glBufferData(GL_ARRAY_BUFFER, nvertices * sizeof(ShapeVertex), &vertices[0], GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
     glBindBuffer(GL_ARRAY_BUFFER, vbos[1]);
-    glBufferData(GL_ARRAY_BUFFER, nvertices2 * sizeof(ShapeVertex), vertices2, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, nvertices2 * sizeof(ShapeVertex), &vertices2[0], GL_STATIC_DRAW);
 	
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -294,7 +295,7 @@ int main(int argc, char** argv) {
 
         glm::mat4 MatView = Freefly.getViewMatrix();
         
-        glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), (GLfloat)largeur/(GLfloat)hauteur, 0.1f, 100.f); 
+        glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), (GLfloat)largeur/(GLfloat)hauteur, 0.1f, 400.f); 
         glm::mat4 MVMatrix = MatView*glm::mat4(1.f);
         glm::mat4 NormalMatrix = glm::transpose(glm::inverse(MVMatrix));
         
@@ -323,7 +324,7 @@ int main(int argc, char** argv) {
         glBindVertexArray(vaos[1]);    
         
         // Tu modifies ce que tu veux de 2e obj
-        glm::mat4 MVMatrix2 = MatView*glm::rotate(MVMatrix, windowManager.getTime(), glm::vec3(0, 1, 0));
+        glm::mat4 MVMatrix2 = MatView*glm::rotate(glm::mat4(1.f), windowManager.getTime(), glm::vec3(0, 1, 0));
         glm::mat4 NormalMatrix2 = glm::transpose(glm::inverse(MVMatrix2));
         glUniformMatrix4fv(locationMVMatrix,1,GL_FALSE, glm::value_ptr(MVMatrix2));
         glUniformMatrix4fv(locationNormalMatrix,1,GL_FALSE, glm::value_ptr(NormalMatrix2));

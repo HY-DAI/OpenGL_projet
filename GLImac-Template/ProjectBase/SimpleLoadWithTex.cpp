@@ -25,7 +25,7 @@ std::unique_ptr<Image> loadAndBindTextures(std::string img_src, GLuint *textures
 
     std::unique_ptr<Image> img_ptr = loadImage(img_src);
     if (!img_ptr)
-        std::cout << "imgTriforce null " << std::endl;
+        std::cout << "img ptr null " << std::endl;
 
     // binder la texture sur la cible GL_TEXTURE_2D
     glBindTexture(GL_TEXTURE_2D, textures[position]);
@@ -80,29 +80,23 @@ int main(int argc, char** argv) {
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals; // Won't be used at the moment.
-	bool res = loadOBJ("../assets/models/rails.obj", vertices, uvs, normals);
+	bool res = loadOBJ("../assets/models/museum/scene_full.obj", vertices, uvs, normals);
 
 
 
     //---------------------------------
-    // Textures
+    // Textures => load doit être fait avant la boucle de rendu
     //---------------------------------
-    GLuint texSize = 1;
+    GLuint texSize = 5;
 
-    GLuint earthTexture;
-    // GLuint cloudTexture;
-    // GLuint moonTexture;
-    // créer un nouveau texture object
-    glGenTextures(texSize, &earthTexture);
-    // glGenTextures(texSize, &cloudTexture);
-    // glGenTextures(texSize, &moonTexture);
+    GLuint textures[texSize];
+    glGenTextures(texSize, textures);
 
-    // Load notre texture => doit être fait avant la boucle de rendu
-    std::unique_ptr<Image> imgTerre = loadAndBindTextures("../assets/textures/EarthMap.jpg", &earthTexture, 0);
-    // std::unique_ptr<Image> imgNuage = loadAndBindTextures("../assets/textures/CloudMap.jpg", &cloudTexture, 0);
-
-    // // Load notre texture lune
-    // std::unique_ptr<Image> imgLune = loadAndBindTextures("../assets/textures/MoonMap.jpg", &moonTexture, 0);
+    std::unique_ptr<Image> imgTerre = loadAndBindTextures("../assets/textures/EarthMap.jpg", textures, 0);
+    std::unique_ptr<Image> imgFragonard_a = loadAndBindTextures("../assets/textures/fragonard_armide.jpg", textures, 1);
+    std::unique_ptr<Image> imgFragonard_b = loadAndBindTextures("../assets/textures/fragonard_balance.jpg", textures, 2);
+    std::unique_ptr<Image> imgCourbet_a = loadAndBindTextures("../assets/textures/courbet_autoportrait.jpg", textures, 3);
+    std::unique_ptr<Image> imgCourbet_m = loadAndBindTextures("../assets/textures/courbet_mer.jpg", textures, 4);
 
 
     //---------------------------------
@@ -143,30 +137,41 @@ int main(int argc, char** argv) {
 	// VAO
     //---------------------------------
 
+	// Faire attention que le vao soit bien bindé et que que ce soit le bon vao
+	const GLuint VERTEX_ATTR_POSITION = 0;
+	const GLuint VERTEX_ATTR_NORMAL = 1;
+	const GLuint VERTEX_ATTR_TEXTURE = 2;
+
+
 	GLuint vaos[3];
 	glGenVertexArrays(3, vaos);
 	glBindVertexArray(*vaos);
 	glBindBuffer(GL_ARRAY_BUFFER, *vbos);
 	
-	// Faire attention que le vao soit bien bindé et que que ce soit le bon vao
-	const GLuint VERTEX_ATTR_POSITION = 0;
-	const GLuint VERTEX_ATTR_NORMAL = 1;
-	const GLuint VERTEX_ATTR_TEXTURE = 2;
-	glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
-	glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
-	glEnableVertexAttribArray(VERTEX_ATTR_TEXTURE);
-	
+    
 	// glBindVertexArray(vaos[0]);
 	// glBindBuffer(GL_ARRAY_BUFFER, vbos[0]);
+	glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
+	glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
+	glEnableVertexAttribArray(VERTEX_ATTR_TEXTURE);	
 	glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE,0, (void*)0 );
+    // glBindBuffer(GL_ARRAY_BUFFER, 0);
     
 	// glBindVertexArray(vaos[1]);
 	// glBindBuffer(GL_ARRAY_BUFFER, vbos[1]);
+	// glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
+	// glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
+	// glEnableVertexAttribArray(VERTEX_ATTR_TEXTURE);
 	glVertexAttribPointer(VERTEX_ATTR_NORMAL, 3, GL_FLOAT, GL_FALSE,0, (void*)0 );
+    // glBindBuffer(GL_ARRAY_BUFFER, 0);
     
 	// glBindVertexArray(vaos[2]);
 	// glBindBuffer(GL_ARRAY_BUFFER, vbos[2]);
+	// glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
+	// glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
+	// glEnableVertexAttribArray(VERTEX_ATTR_TEXTURE);
 	glVertexAttribPointer(VERTEX_ATTR_TEXTURE, 2, GL_FLOAT, GL_FALSE,0, (void*)0 );
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 	
 
 
@@ -176,8 +181,7 @@ int main(int argc, char** argv) {
     // glVertexAttribPointer(VERTEX_ATTR_TEXTURE, 2, GL_FLOAT, GL_FALSE,sizeof(ShapeVertex),  (const GLvoid*)(offsetof(ShapeVertex, texCoords)));
 	
 
-    // Debind vbo et vao
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    // Debind vao
 	glBindVertexArray(0);
     
 
@@ -194,6 +198,7 @@ int main(int argc, char** argv) {
     glUniform1i(locationTex, 0);
     
     glEnable(GL_DEPTH_TEST);
+    // glDepthFunc(GL_ALWAYS); 
 
     // Autres variables uniformes
     glm::vec3 uKd = glm::vec3(1, 1, 1);             // coefficient de reflection diffuse de l'objet
@@ -228,6 +233,7 @@ int main(int argc, char** argv) {
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glBindVertexArray(*vaos);
+        // glBindVertexArray(vaos[0]);
 
 
         bool ClickDroit = windowManager.isMouseButtonPressed(SDL_BUTTON_RIGHT);
@@ -263,7 +269,7 @@ int main(int argc, char** argv) {
 
         glm::mat4 MatView = Freefly.getViewMatrix();
         
-        glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), (GLfloat)largeur/(GLfloat)hauteur, 0.1f, 100.f); 
+        glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), (GLfloat)largeur/(GLfloat)hauteur, 0.1f, 400.f); 
         glm::mat4 MVMatrix = MatView*glm::mat4(1.f);
         glm::mat4 NormalMatrix = glm::transpose(glm::inverse(MVMatrix));
         
@@ -282,7 +288,7 @@ int main(int argc, char** argv) {
         // bindez la texture sur la cible GL_TEXTURE_2D
         glUniform1i(locationTex, 0);
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D,earthTexture);
+        glBindTexture(GL_TEXTURE_2D,textures[1]);
 
         glDrawArrays(GL_TRIANGLES, 0, vertices.size()); 
         // glDrawArrays(GL_TRIANGLES, 0, nvertices); 

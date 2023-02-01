@@ -7,6 +7,9 @@
 
 #include "glimac/objloader.hpp"
 
+
+#include <iostream>
+
 // Very, VERY simple OBJ loader.
 // Here is a short list of features a real function would provide : 
 // - Binary files. Reading a model should be just a few memcpy's away, not parsing a file at runtime. In short : OBJ is not very great.
@@ -23,6 +26,7 @@ bool loadOBJ(
 	std::vector<glm::vec2> & out_uvs,
 	std::vector<glm::vec3> & out_normals
 ){
+
 	printf("Loading OBJ file %s...\n", path);
 
 	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
@@ -39,7 +43,6 @@ bool loadOBJ(
 	}
 
 	while( 1 ){
-
 		char lineHeader[128];
 		// read the first word of the line
 		int res = fscanf(file, "%s", lineHeader);
@@ -55,7 +58,7 @@ bool loadOBJ(
 		}else if ( strcmp( lineHeader, "vt" ) == 0 ){
 			glm::vec2 uv;
 			fscanf(file, "%f %f\n", &uv.x, &uv.y );
-			uv.y = -uv.y; // Invert V coordinate since we will only use DDS texture, which are inverted. Remove if you want to use TGA or BMP loaders.
+			// uv.y = -uv.y; // Invert V coordinate since we will only use DDS texture, which are inverted. Remove if you want to use TGA or BMP loaders.
 			temp_uvs.push_back(uv);
 		}else if ( strcmp( lineHeader, "vn" ) == 0 ){
 			glm::vec3 normal;
@@ -100,11 +103,15 @@ bool loadOBJ(
 		glm::vec2 uv = temp_uvs[ uvIndex-1 ];
 		glm::vec3 normal = temp_normals[ normalIndex-1 ];
 		
+		// uv = glm::vec2((uv.x/16.f)/16.0f,(uv.y/16.f)/16.0f)
+		uv = glm::vec2(1-uv.x,1-uv.y);
+
 		// Put the attributes in buffers
 		out_vertices.push_back(vertex);
 		out_uvs     .push_back(uv);
 		out_normals .push_back(normal);
 	
+        // std::cout << "uv[0] x et y : " << uv.x << uv.y << std::endl;
 	}
 	fclose(file);
 	return true;
