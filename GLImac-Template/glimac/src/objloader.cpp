@@ -17,6 +17,45 @@
 // - More secure. Change another line and you can inject code.
 // - Loading from memory, stream, etc
 
+bool loadVertices(
+	const char * path, 
+	std::vector<glm::vec3> & out_vertices
+){
+	printf("Loading OBJ file %s...\n", path);
+
+	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
+	
+
+
+	FILE * file = fopen(path, "r");
+	if( file == NULL ){
+		printf("Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details\n");
+		getchar();
+		return false;
+	}
+
+	while( 1 ){
+
+		char lineHeader[128];
+		// read the first word of the line
+		int res = fscanf(file, "%s", lineHeader);
+		if (res == EOF)
+			break; // EOF = End Of File. Quit the loop.
+
+		// else : parse lineHeader
+		
+		if ( strcmp( lineHeader, "v" ) == 0 ){
+			glm::vec3 vertex;
+			fscanf(file, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z );
+			out_vertices.push_back(vertex);
+		}
+	}
+	fclose(file);
+	return true;
+}
+
+
+
 bool loadOBJ(
 	const char * path, 
 	std::vector<glm::vec3> & out_vertices, 

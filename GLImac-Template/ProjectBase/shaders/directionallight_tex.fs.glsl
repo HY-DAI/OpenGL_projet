@@ -25,14 +25,14 @@ vec3 blinnPhlong(vec3 wi, vec3 Li, vec3 N, vec3 Kd, vec3 Ks, float shininess, ve
     return Li*(diffuse+specular) ;
 }
 
-void main() {	
+void main() {    
     
     vec3 w0 = normalize(-vPosition_vs);
     vec3 wi = normalize(-uLightDir_vs);
-/*
-	  fFragColor=texture(uEarthTexture,vTexCoords).xyz
-		          +texture(uCloudTexture,vTexCoords).xyz;
 
+      fFragColor=texture(uEarthTexture,vTexCoords).xyz
+                  +texture(uCloudTexture,vTexCoords).xyz;
+/*
     fFragColor *= blinnPhlong(
         wi,
         uLightIntensity,
@@ -43,8 +43,8 @@ void main() {
     );
 */
     //if (fFragColor==vec3(0,0,0))// && vTexCoords==vec2(0,0))
-      //  fFragColor = vNormal_vs;
+      //  fFragColor = vec3(uNormalMatrix*vec4(vNormal_vs,0));
     
-    //if (fFragColor==vec3(0,0,0))// && vTexCoords==vec2(0,0))
-        fFragColor = vec3(1,1,1)*0.5;
+    // if (fFragColor==vec3(0,0,0))// && vTexCoords==vec2(0,0))
+      //  fFragColor = vec3(1,1,1)*0.5;
 }

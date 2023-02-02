@@ -44,8 +44,8 @@ int main(int argc, char** argv) {
 
 
     Geometry scene = Geometry();
-    const FilePath filepath = FilePath("../assets/models/rails.obj");
-    const FilePath mtlBasePath = FilePath("../assets/models/rails.mtl");
+    const FilePath filepath = FilePath("../assets/models/museum/rails.obj");
+    const FilePath mtlBasePath = FilePath("../assets/models/museum/rails.mtl");
     bool loadObj = scene.loadOBJ(filepath, mtlBasePath, loadTextures);
     // variables utiles plus tard
     GLuint nvertices = scene.getVertexCount(); //Nombre de sommet
@@ -60,6 +60,7 @@ int main(int argc, char** argv) {
     // variables utiles plus tard
     GLuint nvertices2 = chariot.getVertexCount(); //Nombre de sommet
     const glimac::Geometry::Vertex* vertices2 = chariot.getVertexBuffer();
+    std::cout << "OpenGL Version : " << &vertices2[1] << std::endl;
 
     
     //---------------------------------
