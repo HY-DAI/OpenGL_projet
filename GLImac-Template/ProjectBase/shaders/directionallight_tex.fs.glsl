@@ -29,8 +29,8 @@ void main() {
     vec3 w0 = normalize(-vPosition_vs);
     vec3 wi = normalize(-uLightDir_vs);
 
-	  fFragColor=texture(uEarthTexture,vTexCoords).xyz
-		          +texture(uCloudTexture,vTexCoords).xyz;
+	//  fFragColor=texture(uEarthTexture,vTexCoords).xyz
+	//	          +texture(uCloudTexture,vTexCoords).xyz;
 /*
     fFragColor *= blinnPhlong(
         wi,
@@ -42,7 +42,7 @@ void main() {
     );
 */
     //if (fFragColor==vec3(0,0,0))// && vTexCoords==vec2(0,0))
-       // fFragColor = vNormal_vs;
+        fFragColor = vNormal_vs;
     
     // if (fFragColor==vec3(0,0,0))// && vTexCoords==vec2(0,0))
       //  fFragColor = vec3(1,1,1)*0.5;

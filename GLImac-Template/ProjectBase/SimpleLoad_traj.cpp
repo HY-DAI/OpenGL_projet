@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals; // Won't be used at the moment.
 
-	bool res = loadOBJ("../assets/models/museum/rails.obj", positions, uvs, normals);
+	bool res = loadOBJ("../assets/models/museum/scene_full.obj", positions, uvs, normals);
     const std::vector<ShapeVertex> vertices = listOfVertex(positions,uvs,normals);  
     GLuint nvertices = vertices.size();
 
@@ -361,7 +361,7 @@ int main(int argc, char** argv) {
         //glm::mat4 MVMatrix2 = MatView*glm::rotate(glm::mat4(1.f), windowManager.getTime(), glm::vec3(0, 1, 0));
         
         glm::vec3 precVec = verticesTraj[x];
-        std::cout << "Point précédent"<<precVec << std::endl;
+        // std::cout << "Point précédent"<<precVec << std::endl;
         //for(int u=0;u<1000;u++){
            
          //  MVMatrix2 = MatView*glm::translate(MVMatrix2,(verticesTraj[x+1]-precVec));//*(float)(u/1000));
@@ -371,7 +371,7 @@ int main(int argc, char** argv) {
         //glm::mat4 Model = glm::translate(glm::mat4(1.f),(verticesTraj[x+1]-precVec))*offset;//*(float)(u/1000));
         glm::mat4 Model = offset*glm::translate(glm::mat4(1.f),(verticesTraj[x]));//*(float)(u/1000));
         glm::mat4 MVMatrix2 = MatView*Model;
-        std::cout << "\nLa soustraction"<<(verticesTraj[x+1]-verticesTraj[x]) << std::endl;
+        // std::cout << "\nLa soustraction"<<(verticesTraj[x+1]-verticesTraj[x]) << std::endl;
         x=x+1;
         x%=verticesTraj.size();
         
