@@ -136,7 +136,7 @@ int main(int argc, char** argv) {
     // glGenTextures(texSize, &moonTexture);
 
     // Load notre texture => doit être fait avant la boucle de rendu
-    std::unique_ptr<Image> imgTerre = loadAndBindTextures("../assets/textures/EarthMap.jpg", &earthTexture, 0);
+    std::unique_ptr<Image> imgTerre = loadAndBindTextures("../assets/textures/courbet_mer.jpg", &earthTexture, 0);
     // std::unique_ptr<Image> imgNuage = loadAndBindTextures("../assets/textures/CloudMap.jpg", &cloudTexture, 0);
 
     // // Load notre texture lune
