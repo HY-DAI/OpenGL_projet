@@ -107,6 +107,15 @@ int main(int argc, char** argv) {
     GLuint nvertices2 = vertices2.size();
 
         std::cout << "obj2 loaded, nvertices2 = " <<nvertices2<< std::endl;
+    
+     std::vector<glm::vec3> positions3;
+	std::vector<glm::vec2> uvs3;
+	std::vector<glm::vec3> normals3; // Won't be used at the moment.
+    bool res3 = loadOBJ("../assets/models/museum/rabbitPlayer.obj", positions3, uvs3, normals3);
+    const std::vector<ShapeVertex> vertices3 = listOfVertex(positions3,uvs3,normals3);  
+    GLuint nvertices3 = vertices3.size();
+
+        std::cout << "obj2 loaded, nvertices2 = " <<nvertices2<< std::endl;
         
     // Read la trajectoire
 	std::vector<glm::vec3> verticesTraj;
@@ -159,7 +168,10 @@ int main(int argc, char** argv) {
 
     glBindBuffer(GL_ARRAY_BUFFER, vbos[1]);
     glBufferData(GL_ARRAY_BUFFER, nvertices2 * sizeof(ShapeVertex), &vertices2[0], GL_STATIC_DRAW);
-	
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vbos[2]);
+    glBufferData(GL_ARRAY_BUFFER, nvertices3 * sizeof(ShapeVertex), &vertices3[0], GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         // std::cout << "uv[0] x et y : " << uvs[0].x << uvs[0].y << std::endl;
@@ -202,6 +214,21 @@ int main(int argc, char** argv) {
 	glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
 	glEnableVertexAttribArray(VERTEX_ATTR_TEXTURE);
     // Associer les vertices avec pointer 
+    glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE,sizeof(ShapeVertex), offsetof(ShapeVertex, position));
+    glVertexAttribPointer(VERTEX_ATTR_NORMAL, 3, GL_FLOAT, GL_FALSE,sizeof(ShapeVertex),  (const GLvoid*)(offsetof(ShapeVertex, normal)));
+    glVertexAttribPointer(VERTEX_ATTR_TEXTURE, 2, GL_FLOAT, GL_FALSE,sizeof(ShapeVertex),  (const GLvoid*)(offsetof(ShapeVertex, texCoords)));
+	// debind vbo
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
+    
+     // bind vao et vbo
+	glBindVertexArray(vaos[2]);
+	glBindBuffer(GL_ARRAY_BUFFER, vbos[2]);	
+	// Faire attention que le vao soit bien bindé et que que ce soit le bon vao
+	glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
+	glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
+	glEnableVertexAttribArray(VERTEX_ATTR_TEXTURE);
+    // glBindBuffer(GL_ARRAY_BUFFER, *vbos);
     glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE,sizeof(ShapeVertex), offsetof(ShapeVertex, position));
     glVertexAttribPointer(VERTEX_ATTR_NORMAL, 3, GL_FLOAT, GL_FALSE,sizeof(ShapeVertex),  (const GLvoid*)(offsetof(ShapeVertex, normal)));
     glVertexAttribPointer(VERTEX_ATTR_TEXTURE, 2, GL_FLOAT, GL_FALSE,sizeof(ShapeVertex),  (const GLvoid*)(offsetof(ShapeVertex, texCoords)));
@@ -360,6 +387,23 @@ int main(int argc, char** argv) {
         glBindTexture(GL_TEXTURE_2D,earthTexture);
         // dessiner ton 2e obj
         glDrawArrays(GL_TRIANGLES, 0, nvertices2); 
+        
+        
+        // pour dessiner ton 3e obj
+        glBindVertexArray(vaos[2]);  
+        
+        
+        
+        glUniformMatrix4fv(locationMVMatrix,1,GL_FALSE, glm::value_ptr(MVMatrix2));
+        glUniformMatrix4fv(locationNormalMatrix,1,GL_FALSE, glm::value_ptr(NormalMatrix2));
+        glUniformMatrix4fv(locationMVPMatrix,1,GL_FALSE, glm::value_ptr(ProjMatrix * MVMatrix2));
+
+        // bindez la texture sur la cible GL_TEXTURE_2D
+        //glUniform1i(locationTex, 0);
+        //glActiveTexture(GL_TEXTURE0);
+        //glBindTexture(GL_TEXTURE_2D,earthTexture);
+        // dessiner ton 2e obj
+        glDrawArrays(GL_TRIANGLES, 0, nvertices3); 
 
 
         glBindTexture(GL_TEXTURE_2D,0);
