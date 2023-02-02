@@ -102,65 +102,15 @@ Ni 1.450000
 d 1.000000
 illum 3
 
-newmtl cabanael_angel
+newmtl Wagon_Metal
 Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.161818 0.161818 0.161818
+Ka 0.945455 0.945455 0.945455
+Kd 0.006740 0.006740 0.006740
+Ks 0.187273 0.187273 0.187273
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
-illum 2
-map_Kd C:/cabanel_fallen_angel.jpg
-
-newmtl cabanel_phedre
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.092727 0.092727 0.092727
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/cabanel_phedre.jpg
-
-newmtl cadre_clair
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.046917 0.031620 0.004946
-Ks 0.158182 0.158182 0.158182
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-
-newmtl cadre_fonce
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.017467 0.012374 0.002772
-Ks 0.158182 0.158182 0.158182
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-
-newmtl courbet_depression
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.132727 0.132727 0.132727
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/courbet_autoportrait.jpg
-
-newmtl courbet_vague
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.136364 0.136364 0.136364
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/courbet_mer.jpg
+illum 3
 
 newmtl edmon_-_CleanUp_-_LowPoly_Material
 Ns 0.000000
@@ -181,46 +131,6 @@ Ni 1.450000
 d 1.000000
 illum 1
 map_Kd C:/edmon_-_CleanUp_-_LowPoly_u1_v1.jpg
-
-newmtl fragonard
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.136364 0.136364 0.136364
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/fragonard_balance.jpg
-
-newmtl fragonard_armide
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.136364 0.136364 0.136364
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/fagonard_armide.jpg
-
-newmtl jundi
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.030909 0.030909 0.030909
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/hujundi_crane.jpg
-
-newmtl jundi_red
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.030909 0.030909 0.030909
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/jundi_red.jpg
 
 newmtl status_0
 Ns 1000.000000

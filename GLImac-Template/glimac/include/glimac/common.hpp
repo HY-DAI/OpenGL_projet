@@ -11,12 +11,4 @@ struct ShapeVertex {
     glm::vec2 texCoords;
 };
 
-struct Vertex
-{
-	glm::vec3 position;
-	glm::vec2 texcoords;
-	glm::vec3 color;
-	glm::vec3 normal;
-};
-
 }
