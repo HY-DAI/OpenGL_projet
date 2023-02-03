@@ -5,7 +5,7 @@
 
 #include <glm/glm.hpp>
 
-#include "glimac/objloader.hpp"
+#include "objects/Objloader.hpp"
 #include <iostream>
 
 // Very, VERY simple OBJ loader.
