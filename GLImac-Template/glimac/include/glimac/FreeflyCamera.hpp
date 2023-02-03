@@ -35,6 +35,10 @@ public :
     	return m_Position;
     }
     
+    void setPosition(glm::vec3 position){
+    	m_Position=position;
+    }
+
     void moveLeft(float t){
     	m_Position += t*m_LeftVector;
     	computeDirectionVectors();
