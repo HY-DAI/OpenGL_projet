@@ -303,7 +303,10 @@ int main(int argc, char **argv)
     GLuint locationLightIntensity1 = glGetUniformLocation(program.getGLId(), "uLightIntensity1");
     GLuint locationLightIntensity2 = glGetUniformLocation(program.getGLId(), "uLightIntensity2");
 
-    // valeurs à donner aux variables uniformes*
+    //---------------------------------
+    // Valeurs à donner aux variables uniformes
+    //---------------------------------
+    
     glm::vec3 uAmbiantLight = 0.1f * glm::vec3(1, 1, 1);
 
     glm::vec3 uKd = 0.5f * glm::vec3(1, 1, 1); // coefficient de reflection diffuse de l'objet
@@ -311,7 +314,7 @@ int main(int argc, char **argv)
     GLfloat uShininess = 1;                    // exposant de brillance (taille de brillance glossy)
 
     glm::vec3 uLightPos_vs1 = glm::vec3(0, 2, 1);
-    glm::vec3 uLightPos_vs2 = glm::vec3(2.5, 3.5, -7); // 1.428869 1.942768 -16.182192
+    glm::vec3 uLightPos_vs2 = glm::vec3(8, 3.5, -7); // 1.428869 1.942768 -16.182192
 
     glm::vec3 uLightDir_vs = glm::vec3(1, 1, 1);    // direction incidente
     glm::vec3 uLightIntensity = glm::vec3(1, 1, 1); // intensite de la lumière incidente
@@ -321,10 +324,12 @@ int main(int argc, char **argv)
     //---------------------------------
     // Boucle des drawings
     //---------------------------------
+
     FreeflyCamera Freefly = FreeflyCamera();
     glm::ivec2 lastMousePos;
     bool dir_light = false;
     bool full_move = false;
+    int v = 1;
     int x = 0;
 
     // Décalage du wagon et du lapinou
@@ -349,6 +354,11 @@ int main(int argc, char **argv)
         // glBindVertexArray(*vaos);
         glBindVertexArray(vaos[0]);
 
+
+        //---------------------------------
+        // Send uniform variables
+        //---------------------------------
+        
         glm::mat4 MatView = Freefly.getViewMatrix();
 
         glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), (GLfloat)largeur / (GLfloat)hauteur, 0.1f, 400.f);
@@ -359,24 +369,31 @@ int main(int argc, char **argv)
         glUniformMatrix4fv(locationNormalMatrix, 1, GL_FALSE, glm::value_ptr(NormalMatrix));
         glUniformMatrix4fv(locationMVPMatrix, 1, GL_FALSE, glm::value_ptr(ProjMatrix * MVMatrix));
 
+        // Light Characteristics of the shape
         glUniform1f(locationShininess, uShininess);
         glUniform3fv(locationKd, 1, glm::value_ptr(uKd));
         glUniform3fv(locationKs, 1, glm::value_ptr(uKs));
 
+        // Ambient light
+        glUniform3fv(locationAmbient, 1, glm::value_ptr(uAmbiantLight));        
+        
+        // Directional light
         glm::vec3 lightDir_vs = glm::vec3(MatView * glm::vec4(uLightDir_vs, 0));
-        glm::vec3 lightPos_vs2 = glm::vec3(MatView * glm::vec4(uLightPos_vs2, 1));
-
         lightDir_vs = static_cast<float>(dir_light) * lightDir_vs;
-
-        glUniform3fv(locationAmbient, 1, glm::value_ptr(uAmbiantLight));
-
         glUniform3fv(locationLightDir_vs, 1, glm::value_ptr(lightDir_vs));
-        glUniform3fv(locationLightPos_vs1, 1, glm::value_ptr(uLightPos_vs1));
-        glUniform3fv(locationLightPos_vs2, 1, glm::value_ptr(lightPos_vs2));
-
         glUniform3fv(locationLightIntensity, 1, glm::value_ptr(uLightIntensity));
+
+        // Point Lights
+        glm::vec3 lightPos_vs2 = glm::vec3(MatView * glm::vec4(uLightPos_vs2, 1));
+        glUniform3fv(locationLightPos_vs1, 1, glm::value_ptr(uLightPos_vs1));
+        glUniform3fv(locationLightPos_vs2, 1, glm::value_ptr(lightPos_vs2));      
         glUniform3fv(locationLightIntensity1, 1, glm::value_ptr(10.f * uLightIntensity));
         glUniform3fv(locationLightIntensity2, 1, glm::value_ptr(10.f * uLightIntensity));
+
+
+        //---------------------------------
+        // Send scene textures
+        //---------------------------------
 
         for (int i = 0; i < material_positions.size() - 1; i++)
         {
@@ -384,19 +401,19 @@ int main(int argc, char **argv)
             glUniform1i(locationTex, 0);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, textures[i % texSize]);
-
-            // std::cout << "material_positions[i] = " << material_positions[i] << std::endl;
-
             glDrawArrays(GL_TRIANGLES, material_positions[i], material_positions[i + 1] - material_positions[i]);
         }
         // prendre en compte le dernier element des indices de matrice
         glUniform1i(locationTex, 0);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textures[3]);
-
         glDrawArrays(GL_TRIANGLES, material_positions[material_positions.size() - 1], nvertices - material_positions[material_positions.size() - 1]);
 
+
+        //---------------------------------
         // vérifier les action du joueur
+        //---------------------------------
+        
         lastMousePos = checkActions(windowManager, Freefly, lastMousePos, full_move);
 
         if (windowManager.isKeyPressed(SDLK_j))
@@ -415,32 +432,37 @@ int main(int argc, char **argv)
         {
             full_move = true;
         }
+        if (windowManager.isKeyPressed(SDLK_g) && v<100)
+        {
+            v *=10;
+        }
+        if (windowManager.isKeyPressed(SDLK_v) && v>1)
+        {
+            v /=10;
+        }
         if (!full_move)
         {
             Freefly.setPosition(verticesTraj[x] + 3.5f * vecOffset);
         }
 
-        for (int t = 0; t < 500; t++)
+        //---------------------------------
+        // Boucle pour ralentir les mouvements dans la spline de trajectoire
+        //---------------------------------
+        
+        for (int t = 0; t < v*500; t++)
         {
-
             // pour dessiner ton 2e obj
             glBindVertexArray(vaos[1]);
 
             float angle = 0.f;
-            if (x > 0)
-                angle = glm::acos(glm::dot(glm::normalize(verticesTraj[x] - verticesTraj[x - 1]), glm::vec3(0, 0, 1)));
-            // glm::mat4 Model = glm::translate(glm::mat4(1.f),(verticesTraj[x+1]-precVec))*offset;//*(float)(u/1000));
+            if (x > 0) angle = glm::acos(glm::dot(glm::normalize(verticesTraj[x] - verticesTraj[x - 1]), glm::vec3(0, 0, 1)));
             glm::mat4 Model = glm::translate(glm::mat4(1.f), verticesTraj[x]) * glm::rotate(glm::mat4(1.f), angle, glm::vec3(0, 1, 0)) * offset; //*(float)(u/1000));
             glm::mat4 MVMatrix2 = MatView * Model;
-
+            // matrices du wagon
             glm::mat4 NormalMatrix2 = glm::transpose(glm::inverse(MVMatrix2));
             glUniformMatrix4fv(locationMVMatrix, 1, GL_FALSE, glm::value_ptr(MVMatrix2));
             glUniformMatrix4fv(locationNormalMatrix, 1, GL_FALSE, glm::value_ptr(NormalMatrix2));
             glUniformMatrix4fv(locationMVPMatrix, 1, GL_FALSE, glm::value_ptr(ProjMatrix * MVMatrix2));
-
-            glUniform1f(locationShininess, uShininess);
-            glUniform3fv(locationKd, 1, glm::value_ptr(uKd));
-            glUniform3fv(locationKs, 1, glm::value_ptr(uKs));
 
             // bindez la texture sur la cible GL_TEXTURE_2D
             glUniform1i(locationTex, 0);
@@ -451,7 +473,7 @@ int main(int argc, char **argv)
 
             // pour dessiner ton 3e obj
             glBindVertexArray(vaos[2]);
-
+            // matrices de du lapinou
             glUniformMatrix4fv(locationMVMatrix, 1, GL_FALSE, glm::value_ptr(MVMatrix2));
             glUniformMatrix4fv(locationNormalMatrix, 1, GL_FALSE, glm::value_ptr(NormalMatrix2));
             glUniformMatrix4fv(locationMVPMatrix, 1, GL_FALSE, glm::value_ptr(ProjMatrix * MVMatrix2));
@@ -463,7 +485,6 @@ int main(int argc, char **argv)
             // dessiner ton 2e obj
             glDrawArrays(GL_TRIANGLES, 0, nvertices3);
 
-            // time = windowManager.getTime()-timeRef;
         }
         x = x + 1;
         x %= verticesTraj.size();
