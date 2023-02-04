@@ -309,11 +309,11 @@ int main(int argc, char** argv) {
     glm::vec3 uKs = 0.2f*glm::vec3(1, 1, 1);             // coefficient de reflection glossy de l'objet
     GLfloat uShininess = 1;                         // exposant de brillance (taille de brillance glossy)
     
-    glm::vec3 uLightPos_vs1 = glm::vec3(0, 2, 1);
-    glm::vec3 uLightPos_vs2 = glm::vec3(1.5, 3, -10); //1.428869 1.942768 -16.182192
+    glm::vec3 uLightPos_vs1 = glm::vec3(0, 2, 0);
+    glm::vec3 uLightPos_vs2 = glm::vec3(0, 17, 10);
     
     glm::vec3 uLightDir_vs = glm::vec3(1, 1, -1);    // direction incidente
-    glm::vec3 uLightIntensity = glm::vec3(1, 1, 1); // intensite de la lumière incidente
+    glm::vec3 uLightIntensity = 10.f*glm::vec3(1, 1, 1); // intensite de la lumière incidente
     
 
 
@@ -363,29 +363,13 @@ int main(int argc, char** argv) {
         glUniform3fv(locationKs, 1, glm::value_ptr(uKs));
 
         glm::vec3 lightDir_vs = glm::vec3(MatView * glm::vec4(uLightDir_vs, 0));
-        glm::vec3 lightPos_vs2 = glm::vec3(MatView * glm::vec4(uLightPos_vs2, 1));
-
-        if(dir_light) 
-            lightDir_vs = glm::vec3(0,0,0); 
-
         glUniform3fv(locationLightDir_vs, 1, glm::value_ptr(lightDir_vs));
         glUniform3fv(locationLightPos_vs1, 1, glm::value_ptr(uLightPos_vs1));
-        glUniform3fv(locationLightPos_vs2, 1, glm::value_ptr(lightPos_vs2));
+        glUniform3fv(locationLightPos_vs2, 1, glm::value_ptr(uLightPos_vs2));
 
         glUniform3fv(locationLightIntensity, 1, glm::value_ptr(uLightIntensity));
-        glUniform3fv(locationLightIntensity1, 1, glm::value_ptr(10.f*uLightIntensity));
-        glUniform3fv(locationLightIntensity2, 1, glm::value_ptr(10.f*uLightIntensity));
-
-        // if (dir_light) {
-        //     glUniform3fv(locationLightDir_vs, 1, glm::value_ptr(lightDir_vs));
-        //     glUniform3fv(locationLightIntensity, 1, glm::value_ptr(uLightIntensity));
-        // }
-        // glUniform3fv(locationLightPos_vs1, 1, glm::value_ptr(uLightPos_vs1));
-        // glUniform3fv(locationLightPos_vs2, 1, glm::value_ptr(lightPos_vs2));
-
-        // glUniform3fv(locationLightIntensity1, 1, glm::value_ptr(10.f*uLightIntensity));
-        // glUniform3fv(locationLightIntensity2, 1, glm::value_ptr(10.f*uLightIntensity));
-
+        glUniform3fv(locationLightIntensity1, 1, glm::value_ptr(uLightIntensity));
+        glUniform3fv(locationLightIntensity2, 1, glm::value_ptr(uLightIntensity));
 
 
         for (int i=0; i<material_positions.size()-1; i++) {     
@@ -412,16 +396,13 @@ int main(int argc, char** argv) {
             // vérifier les action du joueur
             lastMousePos = checkActions(windowManager, Freefly, lastMousePos, full_move);
 
-            if (windowManager.isKeyPressed(SDLK_j)) {
-                dir_light = true;
+            if (windowManager.isKeyPressed(SDLK_l)) {
+                full_move = true;
             }  
-            if (windowManager.isKeyPressed(SDLK_n)) {
-                dir_light = false;
-            }  
-            if (windowManager.isKeyPressed(SDLK_b)) {
+            if (windowManager.isKeyPressed(SDLK_y)) {
                 full_move = false;
             }  
-            if (windowManager.isKeyPressed(SDLK_h)) {
+            if (windowManager.isKeyPressed(SDLK_t)) {
                 full_move = true;
             }     
             if (!full_move) {
@@ -450,7 +431,17 @@ int main(int argc, char** argv) {
         glUniform3fv(locationKd, 1, glm::value_ptr(uKd));
         glUniform3fv(locationKs, 1, glm::value_ptr(uKs));
 
+        if (dir_light) {
+        glUniform3fv(locationLightDir_vs, 1, glm::value_ptr(lightDir_vs));
+        glUniform3fv(locationLightIntensity, 1, glm::value_ptr(uLightIntensity));
+        }
+        glUniform3fv(locationLightPos_vs1, 1, glm::value_ptr(uLightPos_vs1));
+        glUniform3fv(locationLightPos_vs2, 1, glm::value_ptr(uLightPos_vs2));
 
+        glUniform3fv(locationLightIntensity1, 1, glm::value_ptr(uLightIntensity));
+        glUniform3fv(locationLightIntensity2, 1, glm::value_ptr(uLightIntensity));
+
+   
         // bindez la texture sur la cible GL_TEXTURE_2D
         glUniform1i(locationTex, 0);
         glActiveTexture(GL_TEXTURE0);
@@ -465,7 +456,14 @@ int main(int argc, char** argv) {
         glUniformMatrix4fv(locationMVMatrix,1,GL_FALSE, glm::value_ptr(MVMatrix2));
         glUniformMatrix4fv(locationNormalMatrix,1,GL_FALSE, glm::value_ptr(NormalMatrix2));
         glUniformMatrix4fv(locationMVPMatrix,1,GL_FALSE, glm::value_ptr(ProjMatrix * MVMatrix2));
-        
+
+        glUniform3fv(locationLightDir_vs, 1, glm::value_ptr(lightDir_vs));
+        glUniform3fv(locationLightPos_vs1, 1, glm::value_ptr(uLightPos_vs1));
+        glUniform3fv(locationLightPos_vs2, 1, glm::value_ptr(uLightPos_vs2));
+
+        glUniform3fv(locationLightIntensity, 1, glm::value_ptr(uLightIntensity));
+        glUniform3fv(locationLightIntensity1, 1, glm::value_ptr(uLightIntensity));
+        glUniform3fv(locationLightIntensity2, 1, glm::value_ptr(uLightIntensity));
 
         // bindez la texture sur la cible GL_TEXTURE_2D
         glUniform1i(locationTex, 0);
