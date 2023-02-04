@@ -145,6 +145,45 @@ glm::ivec2 checkActions(SDLWindowManager &windowManager, FreeflyCamera &Freefly,
 
 
 
+struct SkyProgram
+{
+    Program m_Program;
+
+    // positions des Matrices de transformation de repere
+    GLint location_sun_pos;
+    GLint location_mvp;
+    GLint location_rot_stars;
+    // positions des unites de texture
+    GLint location_tint;
+    GLint location_tint2;
+    GLuint location_sun;
+    GLint location_moon;   
+    GLint location_clouds1;  
+    GLint location_clouds2;  
+    GLint location_weather;   
+    GLint location_time; 
+
+    SkyProgram(const FilePath &applicationPath) : m_Program(loadProgram(applicationPath.dirPath() + "shaders/skydome.vs.glsl",
+                                                             applicationPath.dirPath() + "shaders/skydome.fs.glsl"))
+    {
+        // positions des Matrices de transformation de repere
+        location_sun_pos = glGetUniformLocation(m_Program.getGLId(), "sun_pos");
+        location_mvp = glGetUniformLocation(m_Program.getGLId(), "mvp");
+        location_rot_stars = glGetUniformLocation(m_Program.getGLId(), "rot_stars");
+        // positions des unites de texture
+        location_tint = glGetUniformLocation(m_Program.getGLId(), "tint");
+        location_tint2 = glGetUniformLocation(m_Program.getGLId(), "tint2");
+        location_sun = glGetUniformLocation(m_Program.getGLId(), "sun");
+        location_moon = glGetUniformLocation(m_Program.getGLId(), "moon");
+        location_clouds1 = glGetUniformLocation(m_Program.getGLId(), "clouds1");
+        location_clouds2 = glGetUniformLocation(m_Program.getGLId(), "clouds2");
+
+        location_weather = glGetUniformLocation(m_Program.getGLId(), "weather");
+        location_time = glGetUniformLocation(m_Program.getGLId(), "time");
+    }
+};
+
+
 struct MeshProgram
 {
     Program m_Program;
@@ -194,6 +233,7 @@ struct MeshProgram
 };
 
 
+
 // ------------------------------------------
 // MAIN
 // ------------------------------------------
@@ -240,6 +280,13 @@ int main(int argc, char **argv)
     bool resTraj = loadVertices("../assets/models/museum/trajectoire.obj", verticesTraj);
     GLuint nverticesTraj = verticesTraj.size();
     // std::cout  << verticesTraj.size() << std::endl;
+
+    //------------------ sky
+
+    std::map<int, std::string> materialIndices4;
+    const std::vector<Vertex> vertices4 = loadShape("../assets/models/sphere.obj", materialIndices4);
+    GLuint nvertices4 = vertices4.size();
+
 
     std::cout << "obj1 loaded, nvertices = " << nvertices << std::endl;
 
@@ -289,6 +336,25 @@ int main(int argc, char **argv)
     for (auto const &imap : materialIndices)
         material_positions.push_back(imap.first);
 
+
+    //---------------------- sky
+    
+    std::vector<std::string> texSkyPaths = {
+        "../assets/textures/skydome/tint.png",
+        "../assets/textures/skydome/tint2.png",
+        "../assets/textures/skydome/sun.png",
+        "../assets/textures/skydome/moon.png",
+        "../assets/textures/skydome/clouds1.png",
+        "../assets/textures/skydome/clouds2.png"
+    };
+
+    GLuint texSkySize = texSkyPaths.size();
+    GLuint texSky[texSkySize];
+    glGenTextures(texSize, texSky);
+
+    for (int i = 0; i < texSkySize; i++)
+        loadAndBindTextures(texSkyPaths[i], texSky, i);
+
     std::cout << "texture loaded" << std::endl;
 
     //---------------------------------
@@ -302,7 +368,7 @@ int main(int argc, char **argv)
 
     FilePath applicationPath(argv[0]);
     MeshProgram meshProgram(applicationPath);
-    // SkyProgram moonProgram(applicationPath);
+    SkyProgram skyProgram(applicationPath);
 
 
     std::cout << "shader loaded" << std::endl;
@@ -311,14 +377,21 @@ int main(int argc, char **argv)
     // Buffers et Vertices
     //---------------------------------
 
+    GLuint vbos[4]; // pour les vertices, uvs, and normals
+    glGenBuffers(4, vbos);
+
+
     int nshapes = 3;
     std::vector<GLuint> Lnvertices = {nvertices, nvertices2, nvertices3};
     std::vector<std::vector<Vertex>> Lvertices = {vertices, vertices2, vertices3};
 
-    GLuint vbos[3]; // pour les vertices, uvs, and normals
-    glGenBuffers(3, vbos);
-
     initVBOs(vbos, nshapes, Lnvertices, Lvertices);
+
+    //-------------- sky
+
+    glBindBuffer(GL_ARRAY_BUFFER, vbos[3]);
+    glBufferData(GL_ARRAY_BUFFER, nvertices4 * sizeof(Vertex), &vertices4[0], GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     std::cout << "vbo ok" << std::endl;
 
@@ -328,38 +401,32 @@ int main(int argc, char **argv)
 
     // Faire attention que le vao soit bien bindé et que que ce soit le bon vao
 
-    GLuint vaos[3];
-    glGenVertexArrays(3, vaos);
+    GLuint vaos[4];
+    glGenVertexArrays(4, vaos);
 
     initVAOs(vaos, vbos, nshapes);
 
+    //-------------- sky
+
+    const GLuint VERTEX_ATTR_POSITION = 0;
+    const GLuint VERTEX_ATTR_NORMAL = 1;
+
+    // bind vao et vbo
+    glBindVertexArray(vaos[3]);
+    glBindBuffer(GL_ARRAY_BUFFER, vbos[3]);
+    // Faire attention que le vao soit bien bindé et que que ce soit le bon vao
+    glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
+    glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
+    // glBindBuffer(GL_ARRAY_BUFFER, *vbos);
+    glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), offsetof(Vertex, position));
+    glVertexAttribPointer(VERTEX_ATTR_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *)(offsetof(Vertex, normal)));
+    // debind vbo
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    // Debind vao
+    glBindVertexArray(0);
+
+
     std::cout << "vao ok" << std::endl;
-
-    // //---------------------------------
-    // // Variables uniformes locations
-    // //---------------------------------
-
-    // GLuint locationMVPMatrix = glGetUniformLocation(program.getGLId(), "uMVPMatrix");
-    // GLuint locationMVMatrix = glGetUniformLocation(program.getGLId(), "uMVMatrix");
-    // GLuint locationNormalMatrix = glGetUniformLocation(program.getGLId(), "uNormalMatrix");
-
-    // // Récupère la location des textures dans le shader
-    // GLuint locationTex = glGetUniformLocation(program.getGLId(), "uEarthTexture");
-    // glUniform1i(locationTex, 0);
-
-    // GLuint locationKd = glGetUniformLocation(program.getGLId(), "uKd");
-    // GLuint locationKs = glGetUniformLocation(program.getGLId(), "uKs");
-    // GLuint locationShininess = glGetUniformLocation(program.getGLId(), "uShininess");
-
-    // GLuint locationAmbient = glGetUniformLocation(program.getGLId(), "uAmbiantLight");
-
-    // GLuint locationLightDir_vs = glGetUniformLocation(program.getGLId(), "uLightDir_vs");
-    // GLuint locationLightIntensity = glGetUniformLocation(program.getGLId(), "uLightIntensity");
-
-    // GLuint locationLightPos_vs1 = glGetUniformLocation(program.getGLId(), "uLightPos_vs1");
-    // GLuint locationLightPos_vs2 = glGetUniformLocation(program.getGLId(), "uLightPos_vs2");
-    // GLuint locationLightIntensity1 = glGetUniformLocation(program.getGLId(), "uLightIntensity1");
-    // GLuint locationLightIntensity2 = glGetUniformLocation(program.getGLId(), "uLightIntensity2");
 
     //---------------------------------
     // Valeurs à donner aux variables uniformes
@@ -409,20 +476,76 @@ int main(int argc, char **argv)
         }
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        // glBindVertexArray(*vaos);
-        glBindVertexArray(vaos[0]);
 
+
+        glm::mat4 MatView = Freefly.getViewMatrix();
+        glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), (GLfloat)largeur / (GLfloat)hauteur, 0.1f, 400.f);
+
+        //---------------------------------
+        //---------------------------------
+        // Sky shader Program
+        //---------------------------------
+        //---------------------------------
+
+
+        skyProgram.m_Program.use();
+
+        // intention de dessiner le ciel
+        glBindVertexArray(vaos[4]);
+
+        glUniform3fv(skyProgram.location_sun_pos, 1, glm::value_ptr(glm::vec3(0,1,0)));
+        glUniformMatrix4fv(skyProgram.location_mvp, 1, GL_FALSE, glm::value_ptr(ProjMatrix*MatView));
+        glUniformMatrix3fv(skyProgram.location_rot_stars, 1, GL_FALSE, glm::value_ptr(glm::mat3(1.f)));
+
+        // Light Characteristics of the shape
+        glUniform1f(skyProgram.location_weather, 0.5f);
+        glUniform1f(skyProgram.location_time, 0.f);
+
+        glUniform1i(skyProgram.location_tint, 0);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texSky[0]);
+
+        glUniform1i(skyProgram.location_tint2, 1);
+        glActiveTexture(GL_TEXTURE0+1);
+        glBindTexture(GL_TEXTURE_2D, texSky[1]);
+
+        glUniform1i(skyProgram.location_sun, 2);
+        glActiveTexture(GL_TEXTURE0+2);
+        glBindTexture(GL_TEXTURE_2D, texSky[2]);
+
+        glUniform1i(skyProgram.location_moon, 3);
+        glActiveTexture(GL_TEXTURE0+3);
+        glBindTexture(GL_TEXTURE_2D, texSky[3]);
+
+        glUniform1i(skyProgram.location_clouds1, 4);
+        glActiveTexture(GL_TEXTURE0+4);
+        glBindTexture(GL_TEXTURE_2D, texSky[4]);
+
+        glUniform1i(skyProgram.location_clouds2, 5);
+        glActiveTexture(GL_TEXTURE0+5);
+        glBindTexture(GL_TEXTURE_2D, texSky[5]);
+
+
+        glDrawArrays(GL_TRIANGLES, 0, nvertices4);
+
+
+
+        //---------------------------------
+        //---------------------------------
+        // Meshes shader Program
+        //---------------------------------
+        //---------------------------------
 
         // Avant le dessin de chaque entitée on utilise meshProgram
         meshProgram.m_Program.use();
+
+        // intention de dessiner 1er obj
+        glBindVertexArray(vaos[0]);
 
         //---------------------------------
         // Send uniform variables
         //---------------------------------
         
-        glm::mat4 MatView = Freefly.getViewMatrix();
-
-        glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), (GLfloat)largeur / (GLfloat)hauteur, 0.1f, 400.f);
         glm::mat4 MVMatrix = MatView * glm::mat4(1.f);
         glm::mat4 NormalMatrix = glm::transpose(glm::inverse(MVMatrix));
 

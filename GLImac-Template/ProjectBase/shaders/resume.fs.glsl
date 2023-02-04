@@ -4,8 +4,8 @@ in vec3 vPosition_vs; // Position du sommet transformé dans l'espace View
 in vec3 vNormal_vs; // Normale du sommet transformé dans l'espace View
 in vec2 vTexCoords; // Coordonnées de texture du sommet
 
-uniform sampler2D uEarthTexture;
-uniform sampler2D uCloudTexture;
+uniform sampler2D uColorTexture;
+uniform sampler2D uBonusTexture;
 
 out vec3 fFragColor;
 
@@ -13,8 +13,6 @@ out vec3 fFragColor;
 uniform vec3 uKd; // coefficient de reflection diffuse de l'objet
 uniform vec3 uKs; // coefficient de reflection glossy de l'objet
 uniform float uShininess; // exposant de brillance permettant de controller la taille de la "tache" de brillance glossy
-
-
 
 uniform vec3 uAmbiantLight;
 
@@ -47,8 +45,8 @@ vec3 clamp(vec3 color) {
 
 void main() {	
     
-	fFragColor = texture(uEarthTexture,vTexCoords).xyz
-		        +texture(uCloudTexture,vTexCoords).xyz;
+	fFragColor = texture(uColorTexture,vTexCoords).xyz
+		        +texture(uBonusTexture,vTexCoords).xyz;
 
     vec3 flight = uAmbiantLight;
 
