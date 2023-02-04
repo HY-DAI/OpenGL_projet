@@ -37,6 +37,7 @@ public :
     
     void setPosition(glm::vec3 position){
     	m_Position=position;
+    	computeDirectionVectors();
     }
 
     void moveLeft(float t){
