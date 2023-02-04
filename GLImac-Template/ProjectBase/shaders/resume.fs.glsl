@@ -37,6 +37,13 @@ vec3 blinnPhlong(vec3 wi, vec3 Li, vec3 N, vec3 Kd, vec3 Ks, float shininess, ve
     return Li*(diffuse+specular) ;
 }
 
+vec3 clamp(vec3 color) {
+    float cmoy = ( color.x + color.y + color.z )/3.f;
+    if(cmoy < 0)
+        return vec3(0);
+    
+    return cmoy * vec3(1);
+}
 
 void main() {	
     
@@ -46,40 +53,40 @@ void main() {
     vec3 flight = uAmbiantLight;
 
     vec3 w0 = normalize(-vPosition_vs);
-    vec3 wi = normalize(-uLightDir_vs);
-/*
-    flight += blinnPhlong(
+    vec3 wi = normalize(uLightDir_vs);
+
+    flight += clamp(blinnPhlong(
         wi,
         uLightIntensity,
         normalize(vNormal_vs), 
         uKd, uKs,
         uShininess,
         (w0+wi)/2
-    );
-*/
+    ));
+
     wi = normalize(uLightPos_vs1 - vPosition_vs);
     float d = distance(uLightPos_vs1, vPosition_vs);
 
-    flight += blinnPhlong(
+    flight += clamp(blinnPhlong(
         wi,
         uLightIntensity1 / (d * d),
         vNormal_vs, 
         uKd, uKs,
         uShininess,
         (w0+wi)/2
-    );
+    ));
   
     wi = normalize(uLightPos_vs2 - vPosition_vs);
     d = distance(uLightPos_vs2, vPosition_vs);
 
-    flight += blinnPhlong(
+    flight += clamp(blinnPhlong(
         wi,
         uLightIntensity2 / (d * d),
         vNormal_vs, 
         uKd, uKs,
         uShininess,
         (w0+wi)/2
-    );
+    ));
 
     //fFragColor *= normalize(flight);
     fFragColor *= flight;

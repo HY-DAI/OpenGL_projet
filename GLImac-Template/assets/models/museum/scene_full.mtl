@@ -1,16 +1,6 @@
 # Blender 3.4.1 MTL File: 'Museum.blend'
 # www.blender.org
 
-newmtl 21052200_LOD0_u0_v0
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.500000
-d 1.000000
-illum 2
-
 newmtl Baccante_Material_u1_v1
 Ka 1.000000 1.000000 1.000000
 Ks 0.000000 0.000000 0.000000
@@ -20,6 +10,16 @@ d 1.000000
 illum 1
 map_Kd C:/Baccante_Baccante_Material_u1_v1_BaseColor.png
 map_Ns C:/Baccante_Baccante_Material_u1_v1_Roughness.png
+
+newmtl Brique
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/brique.jpg
 
 newmtl DioSkuros
 Ns 0.000000
@@ -42,35 +42,15 @@ d 1.000000
 illum 1
 map_Kd C:/ME647_LP_200K.jpg
 
-newmtl Halte_rustique_-_CleanUp_-_LowPoly
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 1
-map_Kd C:/Halte rustique - CleanUp - LowPoly.jpg
-
-newmtl Material
+newmtl Parquet
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.131014 0.073676 0.031714
 Ks 0.169091 0.169091 0.169091
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-
-newmtl Material.001
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/T_OilonCanvusofCarolineScottHarrison_C.png
+map_Kd C:/parquet.jpg
 
 newmtl Rail_Bois
 Ns 250.000000
@@ -142,6 +122,26 @@ Ni 1.450000
 d 1.000000
 illum 2
 
+newmtl caroline
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/T_OilonCanvusofCarolineScottHarrison_C.png
+
+newmtl cheval
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
 newmtl courbet_depression
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
@@ -162,17 +162,7 @@ d 1.000000
 illum 2
 map_Kd C:/courbet_mer.jpg
 
-newmtl edmon_-_CleanUp_-_LowPoly_Material
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 1.000000 1.000000 1.000000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 1
-
-newmtl edmon_-_CleanUp_-_LowPoly_Material_u1_v1
+newmtl edmon
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Ks 0.000000 0.000000 0.000000
@@ -181,6 +171,16 @@ Ni 1.450000
 d 1.000000
 illum 1
 map_Kd C:/edmon_-_CleanUp_-_LowPoly_u1_v1.jpg
+
+newmtl foret
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:/Halte rustique - CleanUp - LowPoly.jpg
 
 newmtl fragonard
 Ns 250.000000
@@ -222,17 +222,7 @@ d 1.000000
 illum 2
 map_Kd C:/jundi_red.jpg
 
-newmtl status_0
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:/Le printemps_0.jpg
-
-newmtl status_1
+newmtl tete
 Ns 1000.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -241,3 +231,13 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
+
+newmtl tete_0
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Le printemps_0.jpg
